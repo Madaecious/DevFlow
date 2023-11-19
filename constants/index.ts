@@ -71,3 +71,11 @@ export const BADGE_CRITERIA = {
     GOLD: 100000,
   },
 };
+
+export const TOP_QUESTIONS = [
+  "Best practices for data fetching in a Next.jas application with Server-Side Rendering (SSR)?",
+  "Can I get the course for free?",
+  "Redux Toolkit Not Updating State as Expected",
+  "Async/Await Function Not Handling Errors Properly",
+  "How do I Use express as a custom server in NextJS?",
+];
