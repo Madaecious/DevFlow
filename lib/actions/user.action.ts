@@ -8,7 +8,6 @@ import {
   UpdateUserParams,
 } from "./shared.types";
 import { revalidatePath } from "next/cache";
-// import { useReducer } from "react";
 import Question from "@/database/question.model";
 
 export async function getUserById(params: any) {
@@ -62,6 +61,8 @@ export async function deleteUser(params: DeleteUserParams) {
 
     const { clerkId } = params;
 
+    // Note: it doesn't appear that this is correct.
+    // It appears that it deletes the user here and again below.
     const user = await User.findOneAndDelete({ clerkId });
 
     if (!user) {
@@ -73,7 +74,7 @@ export async function deleteUser(params: DeleteUserParams) {
 
     // get user question ids
 
-    // Note: it doesn't appear that user._id is correct
+    // Note: it doesn't appear that "user._id" is correct
     const userQuestionIds = await Question.find({ author: user._id }).distinct(
       "_id"
     );
