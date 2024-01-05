@@ -67,7 +67,7 @@ export async function POST(req: Request) {
       email: email_addresses[0].email_address,
       picture: image_url,
     });
-
+    console.log("User created!");
     return NextResponse.json({ message: "OK", user: mongoUser });
   }
 
@@ -86,7 +86,7 @@ export async function POST(req: Request) {
       },
       path: `/profile/${id}`,
     });
-
+    console.log("User updated!");
     return NextResponse.json({ message: "OK", user: mongoUser });
   }
 
@@ -100,6 +100,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ message: "OK", user: deletedUser });
   }
-
+  console.log("User deleted!");
   return new Response("", { status: 200 });
 }
