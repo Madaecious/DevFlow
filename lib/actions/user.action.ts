@@ -10,6 +10,7 @@ import {
 import { revalidatePath } from "next/cache";
 import Question from "@/database/question.model";
 
+// Get user by ID --------------------------------------------------------------
 export async function getUserById(params: any) {
   try {
     connectToDatabase();
@@ -25,6 +26,7 @@ export async function getUserById(params: any) {
   }
 }
 
+// Create user -----------------------------------------------------------------
 export async function createUser(userData: CreateUserParams) {
   try {
     connectToDatabase();
@@ -38,6 +40,7 @@ export async function createUser(userData: CreateUserParams) {
   }
 }
 
+// Update User -----------------------------------------------------------------
 export async function updateUser(params: UpdateUserParams) {
   try {
     connectToDatabase();
@@ -55,6 +58,7 @@ export async function updateUser(params: UpdateUserParams) {
   }
 }
 
+// Delete user -----------------------------------------------------------------
 export async function deleteUser(params: DeleteUserParams) {
   try {
     connectToDatabase();
@@ -69,13 +73,8 @@ export async function deleteUser(params: DeleteUserParams) {
       throw new Error("User not found");
     }
 
-    // Delete user from database
-    // and questions, answers, comments, etc.
-
-    // get user question ids
-
+    // Delete user from database, questions, answers, comments, etc.
     // Note: it doesn't appear that "user._id" is correct
-
     // eslint-disable-next-line no-unused-vars
     const userQuestionIds = await Question.find({ author: user }).distinct(
       "_id"
