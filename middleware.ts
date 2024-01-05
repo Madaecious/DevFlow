@@ -17,3 +17,5 @@ export default authMiddleware({
 export const config = {
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
+
+// Reference: https://clerk.com/docs/references/nextjs/auth-middleware
