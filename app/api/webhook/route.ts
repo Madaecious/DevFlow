@@ -102,5 +102,3 @@ export async function POST(req: Request) {
   console.log("User deleted!");
   return new Response("", { status: 200 });
 }
-
-// Adding this line solely for deployment purposes
